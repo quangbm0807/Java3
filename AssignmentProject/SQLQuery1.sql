@@ -1,0 +1,26 @@
+CREATE DATABASE QuanLySinhVien;
+
+CREATE TABLE STUDENT(
+	studentId NVARCHAR(50) PRIMARY KEY,
+	fullName NVARCHAR(50),
+	email NVARCHAR(50),
+	phoneNumber NVARCHAR(10),
+	gender CHAR(4),
+	stuAddress NVARCHAR(50),
+	stuImage NVARCHAR(50)
+);
+
+CREATE TABLE MARK(
+	id INT IDENTITY(1,1) PRIMARY KEY,
+	studentId NVARCHAR(50),
+	english DECIMAL(4,2),
+	maths DECIMAL(4,2),
+	chemistry DECIMAL(4,2)
+	FOREIGN KEY (studentId) REFERENCES STUDENT(studentId)
+);
+
+CREATE TABLE USERS(
+	username NVARCHAR(50) PRIMARY KEY,
+	passwordUser NVARCHAR(50),
+	roleUser NVARCHAR(50)
+);
